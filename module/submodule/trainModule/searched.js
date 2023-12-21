@@ -21,7 +21,7 @@ module.exports = function searchProducts(manager,products) {
         shortNames.forEach(shortName => {
             // manager.addNamedEntityText('product', product, ['en'], [product.toLowerCase(), shortNames])
             manager.addDocument("en", `how many %product% do we have?`, "asking.products.search", { product: shortName.toLowerCase() });
-            manager.addDocument("en", `give me the list of %product% do we have?`, "asking.products.search", { product: shortName.toLowerCase() });
+            manager.addDocument("en", `give me the list of %product% we have?`, "asking.products.search", { product: shortName.toLowerCase() });
             
         });
 
