@@ -34,7 +34,7 @@ module.exports = function addPrinting(manager, products) {
       // Example 7
       manager.addDocument(
         "en",
-        `I need a printed list of all the %product% currently available.`,
+        `I need a printed list of all the %product%.`,
         "command.print.available.product",
         { product: shortName.toLowerCase() }
       );
