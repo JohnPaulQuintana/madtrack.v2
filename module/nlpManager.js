@@ -32,8 +32,9 @@ const trainAndProcessNLP = async (question, products) => {
             const response = await manager.process("en", question);
             // console.log(response)
            // Use a ternary operator to get utteranceText or set it to undefined if no entities
+        //    remove utteranceText for the updates
             const utteranceText = response.entities && response.entities.length > 0
-            ? response.entities[0].utteranceText
+            ? response.entities[0].option
             : false;
 
             const productName = response.entities && response.entities.length > 0
