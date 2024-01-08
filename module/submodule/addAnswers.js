@@ -76,16 +76,25 @@ const addPossibleAnswer = (manager) => {
         "model": "Inventory",
         "table": "inventories",
         "query": "all",
-        "subquery": "print.outofstock.all",
-        "include-print": "stocks",
+        "subquery": "out",
+        "include-out": "stocks",
     });
-    //for all rejected stocks products
+    //for all rejected stocks products for printing
+    // manager.addAnswer("en","asking.products.rejected.all", {
+    //     "model": "Rejected",
+    //     "table": "rejecteds",
+    //     "query": "all",
+    //     "subquery": "print.rejected.all",
+    //     "include-print": "stocks",
+    // });
+
+    //for all rejected stocks products for printing
     manager.addAnswer("en","asking.products.rejected.all", {
         "model": "Rejected",
         "table": "rejecteds",
         "query": "all",
-        "subquery": "print.rejected.all",
-        "include-print": "stocks",
+        "subquery": "rejected",
+        "include-rejected": "stocks",
     });
     //for all purchased stocks products
     manager.addAnswer("en","asking.products.purchased.all", {

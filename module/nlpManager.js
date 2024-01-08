@@ -30,18 +30,18 @@ const trainAndProcessNLP = async (question, products) => {
             }
 
             const response = await manager.process("en", question);
-            // console.log(response)
+            console.log(response.intent)
            // Use a ternary operator to get utteranceText or set it to undefined if no entities
         //    remove utteranceText for the updates
             const utteranceText = response.entities && response.entities.length > 0
             ? response.entities[0].option
             : false;
 
-            const productName = response.entities && response.entities.length > 0
-            ? response.entities[0].option
+            const wildcard = response.entities && response.entities.length > 0
+            ? response.entities[0].utteranceText
             : false;
             const { intent, score, answer } = response;
-            resolve({ intent, score, answer, utteranceText, productName });
+            resolve({ intent, score, answer, utteranceText, wildcard });
         } catch (error) {
             console.log(error);
             reject(error);
